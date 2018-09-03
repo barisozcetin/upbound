@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FilterDropdown from './header/FilterDropdown';
 
 export class Header extends Component {
 	state = {
@@ -14,7 +15,7 @@ export class Header extends Component {
 		const { inputHidden } = this.state;
 		const { campaigns, filter } = this.props;
 		return (
-			<nav className="navbar navbar-expand-lg navbar-light bg-light">
+			<nav className="navbar navbar-expand-lg navbar-light bg-light mt-2">
 				<div className="container">
 					<button
 						className="navbar-toggler"
@@ -30,49 +31,19 @@ export class Header extends Component {
 
 					<div className="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul className="navbar-nav mr-auto">
-							<li className="nav-item dropdown">
-								<a
-									className="nav-link dropdown-toggle"
-									id="navbarDropdown"
-									role="button"
-									data-toggle="dropdown"
-									aria-haspopup="true"
-									aria-expanded="false"
-									href="/"
-								>
-									{filter.campaignName || 'All Campaigns'}
+							<FilterDropdown campaigns={campaigns} onFilterChange={this.props.onFilterChange} filter={filter} />
+							<li className="nav-item ml-2">
+								<a className="nav-link" href="/">
+									<i className="fas fa-list-ul" /> Pending
 								</a>
-								<div className="dropdown-menu" aria-labelledby="navbarDropdown">
-									<a
-										className={`dropdown-item ${filter === '' ? 'active' : ''}`}
-										onClick={() => this.props.onFilterChange()}
-										href="/"
-									>
-										All Campaigns
-									</a>
-									<div className="dropdown-divider" />
-									{campaigns &&
-										campaigns.map((campaign) => (
-											<a
-												className={`dropdown-item ${filter.id === campaign.id ? 'active' : ''}`}
-												key={campaign.id}
-												onClick={() => {
-													this.props.onFilterChange(campaign);
-												}}
-												href="/"
-											>
-												{campaign.campaignName}
-											</a>
-										))}
-								</div>
 							</li>
 						</ul>
 
 						<form className="form-inline my-2 my-lg-0 search--form">
 							<div className="input-group">
 								<input
-									// className="form-control header--input hidden py-2  border bg-transparent"
 									className={`py-2  border bg-transparent header--input  ${inputHidden ? 'hidden' : ''}`}
+									style={{ width: '250px' }}
 									type="search"
 									defaultValue="search"
 									id="example-search-input"
