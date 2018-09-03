@@ -6,7 +6,7 @@ const CreateCard = () => {
 			<div className="card" style={{ width: '100%', height: '100%', justifyContent: 'center' }}>
 				<div className="card--center">
 					<div className="plus--circle">
-						<i class="fas fa-plus" />
+						<i className="fas fa-plus" />
 					</div>
 					<p>Create a Service Card</p>
 				</div>
