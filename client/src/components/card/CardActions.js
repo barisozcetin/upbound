@@ -32,22 +32,13 @@ class CardActions extends Component {
 				<ul className="list-group actions--list">
 					{actions &&
 						actions.map((action) => (
-							<a href="" className="list-group-item list-group-item-action flex-column align-items-start p-1 pr-3">
-								<i class={action.icon} /> {action.text}
-							</a>
+							<button
+								key={action.text}
+								className="list-group-item list-group-item-action flex-column align-items-start py-1 px-3"
+							>
+								<i className={action.icon} /> {action.text}
+							</button>
 						))}
-					{/* <a href="" className="list-group-item list-group-item-action flex-column align-items-start p-1 pr-3">
-							<i class="far fa-edit" /> Edit
-						</a>
-						<a href="" className="list-group-item list-group-item-action flex-column align-items-start p-1 pr-3">
-							<i class="far fa-check-circle" /> Publish
-						</a>
-						<a href="" className="list-group-item list-group-item-action flex-column align-items-start p-1 pr-3">
-							<i class="fas fa-share-alt" /> Share
-						</a>
-						<a href="" className="list-group-item list-group-item-action flex-column align-items-start p-1 pr-3">
-							<i class="far fa-trash-alt" /> Delete
-						</a> */}
 				</ul>
 			</div>
 		);

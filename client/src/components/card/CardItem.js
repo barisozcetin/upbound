@@ -2,6 +2,7 @@ import React from 'react';
 
 import CardActions from './CardActions';
 import CardFooter from './CardFooter';
+import CardProgress from './CardProgress';
 
 const CardItem = ({ card }) => {
 	return (
@@ -11,7 +12,9 @@ const CardItem = ({ card }) => {
 				<div className="card-img-overlay card--overlay"> </div>
 				<div className="card-body">
 					<p className="card-text">{card.cardDescription.substring(0, 100)}</p>
+					<CardProgress currentWorkflow={card.currentWorkflow} price={card.listOfPlans[0].price.amount} />
 				</div>
+
 				<CardFooter card={card} />
 				<CardActions />
 			</div>
