@@ -17,12 +17,13 @@ class App extends Component {
 		this.getData();
 	}
 	async getData() {
+		// Making API call and setting state
 		const data = await getInitialData();
-		console.log(data);
 		const { cards, campaigns } = data;
 		this.setState({ cards, campaigns, loading: false });
 	}
 	getFilteredCards = () => {
+		// Returns filtered cards
 		const { filter } = this.state;
 		if (!filter) return this.state.cards;
 		return this.state.cards.filter((card) => card.campaignId === filter.id);
