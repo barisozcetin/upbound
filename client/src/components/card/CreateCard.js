@@ -1,5 +1,4 @@
 import React from 'react';
-import Plus from './../icons/Plus';
 
 const CreateCard = () => {
 	return (
@@ -7,7 +6,7 @@ const CreateCard = () => {
 			<div className="card" style={{ width: '100%', height: '100%', justifyContent: 'center' }}>
 				<div className="card--center">
 					<div className="plus--circle">
-						<Plus />
+						<i class="fas fa-plus" />
 					</div>
 					<p>Create a Service Card</p>
 				</div>
