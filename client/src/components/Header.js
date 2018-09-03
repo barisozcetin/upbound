@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FilterDropdown from './header/FilterDropdown';
+import HeaderCalender from './header/HeaderCalender';
 
 export class Header extends Component {
 	state = {
@@ -33,24 +34,21 @@ export class Header extends Component {
 						<ul className="navbar-nav mr-auto">
 							<FilterDropdown campaigns={campaigns} onFilterChange={this.props.onFilterChange} filter={filter} />
 							<li className="nav-item ml-2">
-								<a className="nav-link" href="/">
+								<button className="nav-link bg-transparent border-0">
 									<i className="fas fa-list-ul" /> Pending
-								</a>
+								</button>
 							</li>
 						</ul>
-
-						<form className="form-inline my-2 my-lg-0 search--form">
-							<div className="input-group">
-								<input
-									className={`py-2  border bg-transparent header--input  ${inputHidden ? 'hidden' : ''}`}
-									style={{ width: '250px' }}
-									type="search"
-									defaultValue="search"
-									id="example-search-input"
-									ref={(el) => (this.inputElement = el)}
-								/>
-							</div>
-						</form>
+						<ul className="navbar-nav ml-auto">
+							<li className="nav-item ml-2">
+								<a className="nav-link" href="/">
+									<span className="input-group-text bg-transparent border-0">
+										<i className="fas fa-search" />
+									</span>
+								</a>
+							</li>
+							<HeaderCalender />
+						</ul>
 					</div>
 				</div>
 			</nav>
