@@ -25,7 +25,6 @@ class App extends Component {
 
 		this.setState({ campaigns, cards, loading: false });
 	}
-
 	// This version of getData, uses hardcoded json instead of API call
 	// async getData() {
 	// 	// Making API call and setting state
