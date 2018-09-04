@@ -4,7 +4,7 @@ import CardActions from './CardActions';
 import CardFooter from './CardFooter';
 import CardProgress from './CardProgress';
 
-const CardItem = ({ card }) => {
+const CardItem = ({ card, setModal, updateCards }) => {
 	return (
 		<div className="col-lg-3 col-md-4 col-xs-12 mt-5">
 			<div className="card" style={{ width: '100%' }}>
@@ -16,7 +16,7 @@ const CardItem = ({ card }) => {
 				</div>
 
 				<CardFooter card={card} />
-				<CardActions />
+				<CardActions card={card} setModal={setModal} />
 			</div>
 		</div>
 	);

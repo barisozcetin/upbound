@@ -4823,11 +4823,23 @@ let campaigns = [
 	}
 ];
 
+let filters = [ 'saved', 'pending', 'active', 'paused', 'expired', 'declined', 'terminated' ];
+
 function _getCards() {
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
-			resolve([ ...cards ]);
+			resolve([ ...cards.sort((a, b) => a.cardTitle - b.cardTitle) ]);
 		}, 1000);
+	});
+}
+
+function _updateCards(updatedCard) {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			const otherCards = cards.filter((card) => card.cardTitle !== updatedCard.cardTitle);
+			cards = [ ...otherCards, updatedCard ];
+			resolve([ updatedCard ]);
+		}, 100);
 	});
 }
 
@@ -4839,7 +4851,17 @@ function _getCampaigns() {
 	});
 }
 
+function _getFilters() {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			resolve([ ...filters ]);
+		}, 1000);
+	});
+}
+
 module.exports = {
 	getCards: _getCards,
-	getCampaigns: _getCampaigns
+	getCampaigns: _getCampaigns,
+	getFilters: _getFilters,
+	updateCards: _updateCards
 };

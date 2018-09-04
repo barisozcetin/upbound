@@ -39,6 +39,14 @@ class CardActions extends Component {
 								<i className={action.icon} /> {action.text}
 							</button>
 						))}
+					<button
+						className="list-group-item list-group-item-action flex-column align-items-start py-1 px-3"
+						onClick={() => this.props.setModal(this.props.card)}
+						data-toggle="modal"
+						data-target="#workflowModal"
+					>
+						Change Status
+					</button>
 				</ul>
 			</div>
 		);

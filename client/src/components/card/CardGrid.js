@@ -5,10 +5,10 @@ import CreateCard from './CreateCard';
 class CardGrid extends Component {
 	state = {};
 	render() {
-		const { cards } = this.props;
+		const { cards, setModal, updateCards } = this.props;
 		return (
 			<div className="row mt-1">
-				{cards && cards.map((card, index) => <CardItem key={index} card={card} />)} <CreateCard />
+				{cards && cards.map((card) => <CardItem key={card.cardTitle} card={card} setModal={setModal} />)} <CreateCard />
 			</div>
 		);
 	}
